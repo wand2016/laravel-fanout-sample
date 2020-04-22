@@ -1,0 +1,6 @@
+[submodule "docker-php-a"]
+	path = docker-php-a
+	url = git@github.com:wand2016/docker-php.git
+[submodule "docker-php-b"]
+	path = docker-php-b
+	url = git@github.com:wand2016/docker-php.git
