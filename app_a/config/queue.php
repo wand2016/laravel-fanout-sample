@@ -1,5 +1,7 @@
 <?php
 
+use App\Jobs\MyJob;
+
 return [
 
     /*
@@ -66,6 +68,16 @@ return [
             'block_for' => null,
         ],
 
+        'sqs-sns' => [
+            'driver' => 'sqs-sns',
+            'key' => env('AWS_ACCESS_KEY_ID'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY'),
+            'queue'  => env('QUEUE_URL', 'your-queue-url'),
+            'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
+            'routes' => [
+                env('SNS_TOPIC_ARN') => MyJob::class,
+            ],
+        ],
     ],
 
     /*
